@@ -127,7 +127,7 @@ mean(rf.pred!=Yield.test)
 #install.packages("randomForest")
 #library(randomForest)
 set.seed(168)
-bag.finaldata=randomForest(yield~.-Response, data=train.data,mtry=100,ntree=10,importance=TRUE)
+bag.finaldata=randomForest(yield~.-Response, data=train.data,mtry=100,ntree=5,importance=TRUE)
 varImpPlot(bag.finaldata)
 
 # Predicting test set results
@@ -247,21 +247,6 @@ lda.class=lda.pred$class
 table(lda.class,Yield.test)
 mean(lda.class==Yield.test)
 mean(lda.class!=Yield.test)
-
-## QDA
-#install.packages("MASS")
-#library(MASS)
-set.seed(200)
-qda.fit=qda(yield~.-Response-PC14-PC17
-            -PC19-PC51-PC55-PC67-PC50-PC97-PC99-PC12-PC10-PC11-PC4-PC5-PC6-PC53-PC3,data=data.smote,family=binomial)
-summary(qda.fit)
-
-# Predicting test set results
-qda.pred=predict(qda.fit,test.data)
-qda.class=qda.pred$class
-table(qda.class,Yield.test)
-mean(qda.class==Yield.test)
-mean(qda.class!=Yield.test)
 
 ## Logistic Regression
 #library(MASS)
