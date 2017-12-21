@@ -1,7 +1,6 @@
 # Predictive-Models-for-Equipment-Fault-Detection---Secom-Dataset
 
-secom.data: 1567 observations 590 variables (features)
-secom_labels.data: classification (pass/fail) and time stamp
+secom.data: 1567 observations 590 variables (features);  secom_labels.data: classification (pass/fail) and time stamp
 
 secom.data consists of a set of features where each data record represents a single production entity with associated measured features
 
